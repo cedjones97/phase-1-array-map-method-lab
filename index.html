@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,4 +10,37 @@
   hello
   <script type="text/javascript" src="index.js"></script>
 </body>
-</html>
+</html> -->
+
+myBooks = [
+  {
+    title: 'This is not a love story',
+    price: 30,
+    inventory: 20
+  },
+  {
+    title: 'Slick',
+    price: 25,
+    inventory: 30
+  },
+  {
+    title: 'May 9th',
+    price: 20,
+    inventory: 15
+  }
+]
+
+function loopAndUpdate(array, updaterFoo){
+  const updatedArray = []
+  for(let item of array){
+    updatedArray.push(updaterFoo(item))
+  }
+  return updatedArray
+}
+
+function halfOff(item){
+  let itemCopy = Object.assign({}, item)
+  itemCopy.price = Math.floor(itemCopy.price/2)
+  return itemCopy
+}
+console.log(loopAndUpdate(myBooks, halfOff))
